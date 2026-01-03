@@ -5,7 +5,7 @@
 #include <condition_variable>
 #include <thread>
 #include <iostream>
-#include <cv_bridge/cv_bridge.h>
+#include <cv_bridge/cv_bridge.hpp>
 #include <pcl/io/pcd_io.h>
 #include <pcl/point_cloud.h>
 #include <pcl_conversions/pcl_conversions.h>
@@ -935,7 +935,7 @@ public:
                     pass.setInputCloud(pointCloud);
                     pass.setFilterFieldName("z");
                     pass.setFilterLimits(0, cameraPointCloudMaxDistances[index]);
-                    pass.setFilterLimitsNegative(false);
+                    pass.setNegative(false);
                     pass.filter(*pointCloudNorm);
                 }else{
                     *pointCloudNorm = *pointCloud;
